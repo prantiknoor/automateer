@@ -11,6 +11,8 @@
   "license": "MIT",
   "packageManager": "pnpm@10.10.0",
   "dependencies": {
+    "express": "^5.1.0",
+    "morgan": "^1.10.0",
     "puppeteer": "^24.8.2"
   }
 }

@@ -27,7 +27,7 @@
   },
   {
     "id": 4,
-    "name": "get page header ($eval)",
+    "name": "get paragraph",
     "method": "$eval",
     "params": {
       "selector": "p",

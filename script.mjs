@@ -1,7 +1,7 @@
 import puppeteer from "puppeteer";
 import tasks from "./tasks.json" assert { type: "json" };
 
-async function performTasks(tasks) {
+export async function performTasks(tasks) {
   const outputs = {};
   const browser = await puppeteer.launch()
   // const page = (await browser.pages()).at(0)
@@ -26,7 +26,7 @@ async function performTasks(tasks) {
   return outputs
 }
 
-for (let i = 0; i < 1; i++) {
-  performTasks(tasks).then(console.log)
-}
+// for (let i = 0; i < 1; i++) {
+//   performTasks(tasks).then(console.log)
+// }
 
