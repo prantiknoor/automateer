@@ -1,9 +1,10 @@
 import puppeteer from "puppeteer";
-import tasks from "./tasks.json" assert { type: "json" };
+// import tasks from "./tasks.json" assert { type: "json" };
+
+const browser = await puppeteer.launch({ args: ["--no-sandbox"] })
 
 export async function performTasks(tasks) {
   const outputs = {};
-  const browser = await puppeteer.launch()
   // const page = (await browser.pages()).at(0)
   const page = await browser.newPage()
 
@@ -21,7 +22,7 @@ export async function performTasks(tasks) {
 
     console.timeEnd(name)
   }
-  browser.close()
+  page.close()
 
   return outputs
 }
