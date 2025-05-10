@@ -10,7 +10,7 @@ export async function performTasks(tasks) {
 
   for (let i = 0; i < tasks.length; i++) {
     const { id, name, method, params = {}, include } = tasks[i]
-    console.time(name)
+    // console.time(name)
 
     if (params['pageFunction']) {
       params['pageFunction'] = new Function(`return (${params['pageFunction']})`)()
@@ -20,7 +20,7 @@ export async function performTasks(tasks) {
     // console.log(output)
     if (include) { outputs[id] = output }
 
-    console.timeEnd(name)
+    // console.timeEnd(name)
   }
   page.close()
 

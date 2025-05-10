@@ -1,0 +1,55 @@
+const myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+
+const raw = JSON.stringify([
+  {
+    "id": 1,
+    "name": "open example.com",
+    "method": "goto",
+    "params": {
+      "url": "https://example.com",
+      "options": {
+        "waitUntil": "networkidle2"
+      }
+    }
+  },
+  {
+    "id": 2,
+    "name": "get title of the page",
+    "method": "title",
+    "include": true
+  },
+  {
+    "id": 3,
+    "name": "get page header",
+    "method": "evaluate",
+    "params": {
+      "pageFunction": "() => document.querySelector('h1')?.innerText"
+    },
+    "include": true
+  },
+  {
+    "id": 4,
+    "name": "get paragraph",
+    "method": "$eval",
+    "params": {
+      "selector": "p",
+      "pageFunction": "(el)=>{const paragraph = el.innerText;return paragraph.toLowerCase();}"
+    },
+    "include": true
+  }
+]);
+
+const requestOptions = {
+  method: "POST",
+  headers: myHeaders,
+  body: raw,
+  redirect: "follow"
+};
+
+for (let i = 0; i < 5; i++) {
+  fetch("http://localhost:3000/run", requestOptions)
+    .then((response) => response.text())
+    .then((result) => console.log(result))
+    .catch((error) => console.error(error));
+}
