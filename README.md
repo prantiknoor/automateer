@@ -35,7 +35,7 @@ Automateer is a lightweight service designed to execute Puppeteer scripts effici
 ## Usage
 
 1. Start the service (as shown above).
-2. Send a POST request to `/run` with the following JSON payload:
+2. Send a **POST** request to `http://localhost:3000/run` with the following JSON payload:
    ```json
    [
     {
