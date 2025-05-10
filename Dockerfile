@@ -1,8 +1,10 @@
 # Use Node.js with Chrome pre-installed as base
-FROM zenika/alpine-chrome:with-node
+FROM zenika/alpine-chrome
+# FROM zenika/alpine-chrome:with-node
 
 # Install pnpm globally with proper permissions
 USER root
+RUN apk add --no-cache nodejs-current npm tini
 RUN npm install -g pnpm
 USER chrome
 
